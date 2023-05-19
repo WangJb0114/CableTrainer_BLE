@@ -736,8 +736,16 @@ class _DeviceControlState extends State<DeviceControl> {
   void initState() {
     super.initState();
     initBle(widget._device);
-    initListener((isPlay) => null, (lbs) => null, (right, left) => null,
-        (seconds) => null, (calories) => null, (left, right) => null);
+    /**
+     *Initialize data listening callback, and all data returned by MCU will be obtained here.
+     * Operating status, pounds, left and right stroke, time (s), calories, number of left and right pulls
+     */
+    initListener((isPlay) => null, //isPlay bool
+            (lbs) => null, //lbs double
+            (right, left) => null, //wt int
+            (seconds) => null, //seconds int
+            (calories) => null, //cal int
+            (left, right) => null); //count int
   }
 
   @override
